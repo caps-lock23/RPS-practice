@@ -65,9 +65,9 @@ function validateInput(valid) {
 }
 
 function logWins() {
-  let playerWins = winners.filter((item) => item == "player").length;
-  let computerWins = winners.filter((item) => item == "computer").length;
-  let ties = winners.filter((item) => item == "tie").length;
+  let playerWins = winners.filter((item) => item == "Player").length;
+  let computerWins = winners.filter((item) => item == "Computer").length;
+  let ties = winners.filter((item) => item == "Tie").length;
   console.log("Results:");
   console.log("Player wins:", playerWins);
   console.log("Computer wins:", computerWins);
@@ -80,6 +80,7 @@ function logRound(playerChoice, computerChoice, result, round) {
   console.log("Computer pick:", computerChoice);
   console.log("-----------------------");
   console.log(result, "Won the Round");
+  console.log("-----------------------");
 }
 
 game();
