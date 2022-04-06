@@ -11,16 +11,17 @@ const winners = [];
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    playRound();
+    playRound(i);
   }
   logWins();
 }
 
-function playRound() {
+function playRound(round) {
   const playerSelection = playerChoice();
   const computerSelection = computerChoice();
   const winner = checkWinner(playerSelection, computerSelection);
   winners.push(winner);
+  logRound(playerSelection, computerSelection, winner, round);
 }
 
 function playerChoice() {
@@ -47,15 +48,15 @@ function computerChoice() {
 
 function checkWinner(player, computer) {
   if (player === computer) {
-    return "tie";
+    return "Tie";
   } else if (
     (player === "rock" && computer === "scissors") ||
     (player === "paper" && computer === "rock") ||
     (player === "scissors" && computer === "paper")
   ) {
-    return "player";
+    return "Player";
   } else {
-    return "computer";
+    return "Computer";
   }
 }
 
@@ -71,6 +72,14 @@ function logWins() {
   console.log("Player wins:", playerWins);
   console.log("Computer wins:", computerWins);
   console.log("Tie count:", ties);
+}
+
+function logRound(playerChoice, computerChoice, result, round) {
+  console.log("Round:", round);
+  console.log("Player pick:", playerChoice);
+  console.log("Computer pick:", computerChoice);
+  console.log("-----------------------");
+  console.log(result, "Won the Round");
 }
 
 game();
