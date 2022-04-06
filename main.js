@@ -24,6 +24,7 @@ function playRound() {
 function playerChoice() {
   let input = prompt("Enter rock, paper, or scissors");
   let check = validateInput(input);
+  input = input.toLocaleLowerCase;
   while (check == false) {
     //  to validate user input
     input = prompt(
