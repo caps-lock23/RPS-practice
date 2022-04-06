@@ -10,23 +10,31 @@ const choices = ["rock", "paper", "scissors"];
 
 function game() {
   playRound();
-  playRound();
-  playRound();
-  playRound();
-  playRound();
 }
 
 function playRound() {
   const playerSelection = playerChoice();
-  console.log(playerSelection);
+  console.log("Your selection: " + playerSelection);
   const computerSelection = computerChoice();
-  console.log(computerSelection);
+  console.log("Computer selection: " + computerSelection);
   const winner = checkWinner(playerSelection, computerSelection);
   console.log(winner);
 }
 
 function playerChoice() {
-  let input = prompt("Choose rock, paper, or scissors");
+  let input = prompt("Enter rock, paper, or scissors");
+  let check = validateInput(input);
+  while (check == false) {
+    //  to validate user input
+    input = prompt(
+      "Your input is not valid! Please type rock, paper, or scissors"
+    );
+    while (input == null) {
+      input = prompt("Enter rock, paper, or scissors");
+    }
+    input = input.toLowerCase();
+    check = validateInput(input);
+  }
   return input;
 }
 
@@ -46,6 +54,10 @@ function checkWinner(player, computer) {
   } else {
     return "You lose";
   }
+}
+
+function validateInput(valid) {
+  return choices.includes(valid);
 }
 
 game();
