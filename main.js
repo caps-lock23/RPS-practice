@@ -1,10 +1,10 @@
-// player pick rock paper scissors
+// player pick from rock paper scissors
 // computer pick a random choice
 // rock beats scissors, scissors beats rock, paper beats rock, else tie
-// show player and computure choices
+// show player and computer choices
 // show winner per round
 // play 5 rounds
-// first to get 3 is champion
+// log each winner per round
 
 const choices = ["rock", "paper", "scissors"];
 
